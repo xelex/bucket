@@ -1,0 +1,55 @@
+<?php
+
+// Russian - Русский
+
+$lang['Language']='Русский(Russian)';
+$lang['File Bin']='Корзинка для файлов';
+$lang['Direct link']='Прямая ссылка';
+$lang['Forum link']='Ссылка для форума';
+$lang['link']='ссылка';
+$lang['saved']='сохранен';
+$lang['An error has happened']='Произошла ошибка';
+$lang['Send']='Отправить';
+$lang['Send file']='Отправить файл на хранение';
+$lang['Important']='Важно';
+$lang['accepted size']='принимаются файлы размером до';
+$lang['no virus']='запрещается отправлять файлы с вирусами и иной вредоносной или опасной информацией';
+$lang['no delete']='самостоятельно удалить отправленный файл невозможно';
+$lang['no store']='хранящиеся файлы могут быть удалены в любой момент';
+$lang['no service']='сервис может быть отключен в любой момент';
+$lang['no private']='отправка на хранение файлов с конфиденциальной, личной и иной приватной информацией не желательна: ссылки на хранящиеся файлы не секретны и могут использоваться третьими лицами';
+$lang['text here']='для хранения текстовой информации также можно использовать <a href="http://bin.ololo.cc/">специальный сервис</a>';
+$lang['special service']='специальный сервис';
+$lang['plasmoid']='простое использование этого сервиса возможно через <a href="drop2host.plasmoid">плазмоид</a> для KDE4';
+$lang['source']='исходный код лежит в <a href="http://svn.ololo.cc/publish/">SVN</a>, багтрекер: <a href="http://trac.ololo.cc/publish/report/1">http://trac.ololo.cc/publish/</a>';
+$lang['feedback']='предложения и пожелания пишите в <a href=http://trac.ololo.cc/publish/newticket>багтрекер</a>';
+$lang['forum']='форум';
+$lang['Last uploaded']='Последние загруженные файлы';
+$lang['Directory unavailable']='Каталог для записи недоступен';
+$lang['Not enough space']='Недостаточно места';
+$lang['File too big']='Файл слишком большой';
+$lang['Bad file name']='Плохое имя файла';
+$lang['Not saved']='Сохранить %s не удалось';
+$lang['Nowhere to save']='Некуда сохранять файлы';
+$lang['spare space']='однако следует понимать что место не резиновое';
+$lang['space low']='однако доступно для файлов еще %s';
+$lang['no space']='но места на сервере для хранения больше нет';
+$lang['try later']='попробуйте позже или сообщите об этом';
+$lang['File']='Файл';
+$lang['More']='Подробнее';
+$lang['Hide']='Скрыть';
+$lang['deleted']='удален';
+$lang['Wrong password']='Неправильный пароль';
+$lang['Not supported']='Операция не поддерживается';
+$lang['Donate']='Поддержать';
+$lang['copyright']='<a href="mailto:xelex@xelex.ru">Малыш</a> и <a href="mailto:grundik@ololo.cc">Карлсон</a>';
+$lang['Delete code']='Код для удаления';
+$lang['Delete link']='Ссылка для удаления';
+$lang['Delete question']='Удалить файл?';
+$lang['Delete']='Удалить';
+$lang['Enter code']='Введите код';
+$lang['Private file']='Скрыть файл';
+$lang['Private file desc']='Скрытый файл не виден в списке последних файлов и ссылки на него нигде не публикуются';
+$lang['Service Desc']='Это сервис для простого и быстрого обмена файлами в случаях когда прямая передача недоступна или невозможна. Для загрузки файла воспользуйтесь формой ниже или просто перетащите любой файл на эту страницу.';
+$lang['Are you sure to upload this file'] = 'Вы уверены, что хотите загрузить этот файл?';
+$lang['Upload is not supported'] = 'К сожалению загрузка файлов через перетаскивание в вашем браузере не поддерживается. Попробуйте воспользоваться свежей версией FireFox или Chrome.';

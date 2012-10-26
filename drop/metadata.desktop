@@ -1,0 +1,18 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Drop to Host
+ServiceTypes=Plasma/Applet
+Type=Service
+Icon=image-loading
+X-Plasma-API=python
+X-Plasma-MainScript=code/main.py
+
+X-KDE-PluginInfo-Author=Grundik
+X-KDE-PluginInfo-Email=grundik@ololo.cc
+X-KDE-PluginInfo-Name=drop2host
+X-KDE-PluginInfo-Version=0.3.2
+X-KDE-PluginInfo-Website=http://ololo.cc/publish/
+X-KDE-PluginInfo-Category=File Sharing
+X-KDE-PluginInfo-Depends=
+X-KDE-PluginInfo-License=GPL
+X-KDE-PluginInfo-EnabledByDefault=true

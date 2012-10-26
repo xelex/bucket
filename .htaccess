@@ -1,0 +1,20 @@
+DirectoryIndex publish.php
+Options None
+
+RedirectMatch .*\.svn.* /
+
+<Files publish.php>
+  Allow from all
+  LimitRequestBody 0
+  php_value variables_order "EGCSP"
+  php_value upload_max_filesize "64M"
+  php_value post_max_size "65M"
+  php_value max_execution_time "600"
+  php_value memory_limit "80M"
+</Files>
+
+<Files *.php>
+  AddHandler application/x-httpd-php .php .php3
+  php_flag engine on
+  php_flag display_errors on
+</Files>
