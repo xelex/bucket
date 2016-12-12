@@ -166,6 +166,9 @@ function ProcessUpload($save_path, $url_base, $avail_space, $private)
 
       foreach ($_FILES as $file)
       {
+        if (0===strpos($file['name'], '=?')) {
+          $file['name'] = iconv_mime_decode(str_replace('.', '/', $file['name']));
+        }
         $fullname=basename(str_replace("\\", '/', trim($file['name'])));
         if ( $file['size']>$max_size ||
              $file['size']>$avail_space-$reserved_space
@@ -335,7 +338,7 @@ function InitLang()
     $template->assign_block_vars('lang.row', array(
       'langlink'=>'?l='.$lang_code,
       'name'=>$l['name'],
-      'name_ext'=>$l['name'].($l['name']!=$l['name_int']?" (${l[name_int]})":''),
+      'name_ext'=>$l['name'].(isset($l['name_int'])&&$l['name']!=$l['name_int']?" (${l['name_int']})":''),
       'name_int'=>$l['name_int'],
       'code'=>$lang_code,
       'iscur'=>($lang_code==$detected_lang_code?'lang_select':''),

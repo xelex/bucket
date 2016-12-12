@@ -3,6 +3,7 @@ function highlight(field) {
   field.select();
 }
 
+var _keyStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
 
 function decode(input) {
   var output = "";
@@ -10,7 +11,6 @@ function decode(input) {
   var enc1, enc2, enc3, enc4;
   var i = 0;
 
-  var _keyStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
   input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
 
   while (i < input.length) {
@@ -38,6 +38,56 @@ function decode(input) {
   output = _utf8_decode(output);
 
   return output;
+}
+
+function encode(input) {
+    var output = "";
+    var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
+    var i = 0;
+
+    input = _utf8_encode(input);
+    while (i < input.length) {
+        chr1 = input.charCodeAt(i++);
+        chr2 = input.charCodeAt(i++);
+        chr3 = input.charCodeAt(i++);
+
+        enc1 = chr1 >> 2;
+        enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
+        enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
+        enc4 = chr3 & 63;
+
+        if (isNaN(chr2)) {
+            enc3 = enc4 = 64;
+        } else if (isNaN(chr3)) {
+            enc4 = 64;
+        }
+        output = output +
+            _keyStr.charAt(enc1) + this._keyStr.charAt(enc2) +
+            _keyStr.charAt(enc3) + this._keyStr.charAt(enc4);
+    }
+    return output;
+}
+
+function _utf8_encode(string) {
+    string = string.replace(/\r\n/g,"\n");
+    var utftext = "";
+
+    for (var n = 0; n < string.length; n++) {
+        var c = string.charCodeAt(n);
+        if (c < 128) {
+            utftext += String.fromCharCode(c);
+        }
+        else if((c > 127) && (c < 2048)) {
+            utftext += String.fromCharCode((c >> 6) | 192);
+            utftext += String.fromCharCode((c & 63) | 128);
+        }
+        else {
+            utftext += String.fromCharCode((c >> 12) | 224);
+            utftext += String.fromCharCode(((c >> 6) & 63) | 128);
+            utftext += String.fromCharCode((c & 63) | 128);
+        }
+    }
+    return utftext;
 }
 
 function _utf8_decode(utftext) {
@@ -179,7 +229,7 @@ function fileUpload(file) {
     if (checkbox.attr('checked')) {
       appendVar('private', checkbox.val());
     }
-    appendVar('userfile', fileData, '; filename="'+fileName+'"', "Content-Type: "+fileType);
+    appendVar('userfile', fileData, '; filename="=?UTF-8?B?'+encode(fileName).replace('/', '.')+'?="', "Content-Type: "+fileType);
 
     body += "--" + boundary + "--\r\n";
 
