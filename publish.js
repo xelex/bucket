@@ -229,7 +229,7 @@ function fileUpload(file) {
     if (checkbox.attr('checked')) {
       appendVar('private', checkbox.val());
     }
-    appendVar('userfile', fileData, '; filename="=?UTF-8?B?'+encode(fileName).replace('/', '.')+'?="', "Content-Type: "+fileType);
+    appendVar('userfile', fileData, '; filename="=?UTF-8?B?'+encode(fileName).replace(/\//g, '.')+'?="', "Content-Type: "+fileType);
 
     body += "--" + boundary + "--\r\n";
 
